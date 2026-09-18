@@ -1,0 +1,20 @@
+ACME CLOUD SERVICES — SOC 2 TYPE II REPORT (EXCERPT)
+
+Encryption: ACME encrypts customer data at rest using AES-256. Data in transit
+is secured using TLS 1.1 for legacy API endpoints and TLS 1.3 for the current
+API gateway; the legacy endpoints are scheduled for deprecation in Q3 next year
+but remain in production today.
+
+Incident History: ACME reported one security incident in the trailing 12
+months involving unauthorized access to a staging environment containing
+anonymized data. In the prior 12-month period, ACME reported one additional
+incident involving a misconfigured storage bucket that was briefly exposed
+before remediation.
+
+Data Retention: Upon contract termination, ACME deletes primary customer data
+within 15 days. Backup copies are retained for 60 days post-termination for
+disaster-recovery purposes and are encrypted using the same AES-256 standard
+as production data.
+
+Sub-processors: ACME's current sub-processor list includes AWS (infrastructure),
+Twilio (SMS notifications), and Segment (analytics), all disclosed in Appendix C.

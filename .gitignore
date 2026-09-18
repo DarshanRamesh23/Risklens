@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.venv/
+node_modules/
+dist/
+backend/ml/model.pkl
+backend/ml/feature_meta.json
+backend/ml/synthetic_vendors.csv
+.env
+*.egg-info/
+.pytest_cache/

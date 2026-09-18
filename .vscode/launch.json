@@ -1,0 +1,48 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Backend: FastAPI (uvicorn)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "uvicorn",
+      "args": ["app.main:app", "--reload", "--port", "8000"],
+      "cwd": "${workspaceFolder}/backend",
+      "envFile": "${workspaceFolder}/backend/.env",
+      "justMyCode": true
+    },
+    {
+      "name": "Backend: Train ML model",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/backend/ml/train_model.py",
+      "cwd": "${workspaceFolder}/backend",
+      "justMyCode": true
+    },
+    {
+      "name": "Backend: Run demo seed script",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/backend/demo_seed.py",
+      "cwd": "${workspaceFolder}/backend",
+      "envFile": "${workspaceFolder}/backend/.env",
+      "justMyCode": true
+    },
+    {
+      "name": "Backend: Pytest (current file)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "pytest",
+      "args": ["${file}", "-v"],
+      "cwd": "${workspaceFolder}/backend",
+      "justMyCode": true
+    },
+    {
+      "name": "Frontend: Chrome against Vite dev server",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:5173",
+      "webRoot": "${workspaceFolder}/frontend/src"
+    }
+  ]
+}

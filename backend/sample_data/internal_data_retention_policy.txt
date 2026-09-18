@@ -1,0 +1,29 @@
+INTERNAL RISK POLICY: DATA RETENTION AND VENDOR HANDLING (v3)
+
+Section 1 — Scope
+This policy applies to all third-party vendors that store, process, or transmit
+company data, including customer PII, on behalf of the company.
+
+Section 2 — Encryption Requirements
+2.1 All vendor systems storing PII must encrypt data at rest using AES-256 or
+equivalent.
+2.2 All data in transit between vendor and company systems must use TLS 1.2 or
+higher. Vendors using TLS 1.0 or 1.1 are considered non-compliant and must
+remediate within 90 days of assessment.
+
+Section 3 — Incident History
+3.1 Vendors with two or more reportable security incidents in the trailing 24
+months are classified as elevated risk and require quarterly re-assessment
+rather than annual.
+3.2 A reportable incident includes any unauthorized access to PII, regardless
+of whether data exfiltration was confirmed.
+
+Section 4 — Data Retention and Deletion
+4.1 Vendors must delete company data within 30 days of contract termination
+and provide written certification of deletion.
+4.2 Vendors retaining backups beyond 30 days post-termination must disclose
+backup retention schedules and encryption status of those backups.
+
+Section 5 — Sub-processors
+5.1 Vendors must disclose all sub-processors with access to company data.
+5.2 Use of undisclosed sub-processors is treated as a material contract breach.

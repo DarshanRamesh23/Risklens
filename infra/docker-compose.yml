@@ -1,0 +1,43 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: risklens
+      POSTGRES_PASSWORD: risklens
+      POSTGRES_DB: risklens
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U risklens"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  mongo:
+    image: mongo:7
+    ports:
+      - "27018:27017"
+    volumes:
+      - mongodata:/data/db
+
+  backend:
+    build: ../backend
+    depends_on:
+      postgres:
+        condition: service_healthy
+      mongo:
+        condition: service_started
+    environment:
+      DATABASE_URL: postgresql://risklens:risklens@postgres:5432/risklens
+      MONGO_URL: mongodb://mongo:27017
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY}
+    ports:
+      - "8000:8000"
+
+volumes:
+  pgdata:
+  mongodata:
