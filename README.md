@@ -99,7 +99,7 @@ docker compose -f infra/docker-compose.yml up -d
 cd backend
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-export ANTHROPIC_API_KEY=sk-...        # required for the agent step
+export GEMINI_API_KEY=AQ...        # required for the agent step
 export DATABASE_URL=postgresql://risklens:risklens@localhost:5432/risklens
 export MONGO_URL=mongodb://localhost:27017
 alembic upgrade head 2>/dev/null || python -m app.db.postgres  # create tables
