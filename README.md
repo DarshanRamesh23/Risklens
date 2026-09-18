@@ -28,19 +28,19 @@ keeping a human in the loop for the decision — every finding shows its receipt
                        └──────┬───────┬────────┘
                               │       │
               ┌───────────────┘       └───────────────┐
-              ▼                                        ▼
+              ▼                                       ▼
    ┌─────────────────────┐                  ┌──────────────────────┐
-   │  Ingestion Service   │                  │  Risk-Scoring Service │
-   │  - chunk documents    │                  │  - ML gate (sklearn) │
-   │  - embed (MiniLM)      │                  │  - RAG retrieval     │
-   │  - store vectors       │                  │  - LLM agent + cite  │
-   └──────────┬────────────┘                  │    verification pass │
-              │                                └──────────┬───────────┘
-              ▼                                           ▼
+   │  Ingestion Service  │                  │  Risk-Scoring Service│
+   │  - chunk documents  │                  │  - ML gate (sklearn) │
+   │  - embed (MiniLM)   │                  │  - RAG retrieval     │
+   │  - store vectors    │                  │  - LLM agent + cite  │
+   └──────────┬──────────                   │    verification pass │
+              │                             └──────────┬───────────┘
+              ▼                                        ▼
    ┌─────────────────────┐                     ┌──────────────────────┐
-   │      MongoDB          │                     │   Postgres + pgvector │
-   │  raw doc bytes +       │◄────────────────────┤  chunks, embeddings, │
-   │  upload metadata       │      chunk refs      │  vendors, findings   │
+   │      MongoDB        │                     │  Postgres + pgvector │
+   │  raw doc bytes +    │◄────────────────────┤  chunks, embeddings, │
+   │  upload metadata    │      chunk refs     │  vendors, findings   │
    └─────────────────────┘                     └──────────────────────┘
 ```
 
